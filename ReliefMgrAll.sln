@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "COVID19Ninjas", "COVID19Ninjas\COVID19Ninjas.csproj", "{7B2C95CB-CDB1-4060-B2AA-AB08B8DB1E2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "COVID19Relief.Middleware", "COVID19Relief.Middleware\COVID19Relief.Middleware.csproj", "{6BD3D8DE-8498-4EEA-9B47-1C5857BC3BCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B2C95CB-CDB1-4060-B2AA-AB08B8DB1E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2C95CB-CDB1-4060-B2AA-AB08B8DB1E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2C95CB-CDB1-4060-B2AA-AB08B8DB1E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2C95CB-CDB1-4060-B2AA-AB08B8DB1E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD3D8DE-8498-4EEA-9B47-1C5857BC3BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD3D8DE-8498-4EEA-9B47-1C5857BC3BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD3D8DE-8498-4EEA-9B47-1C5857BC3BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD3D8DE-8498-4EEA-9B47-1C5857BC3BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9C81CBF-2E36-4B09-865C-CF77293ED2D9}
+	EndGlobalSection
+EndGlobal
