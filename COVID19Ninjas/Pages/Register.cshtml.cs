@@ -16,6 +16,7 @@ namespace COVID19Ninjas.Pages
 
         [BindProperty]
         public Users Users { get; set; }
+        public static Users usersStaticData { get; set; }
         [BindProperty]
         public SalaryDetails SalaryDetails { get; set; }
         [BindProperty]
@@ -41,14 +42,15 @@ namespace COVID19Ninjas.Pages
         public async Task OnGetAsync()
         {
             showUserInfo = true;
-         //var banks =  await  dataService.GetData<List<Banks>>("api/Banks");
+            //var banks =  await  dataService.GetData<List<Banks>>("api/Banks");
 
         }
 
-        
+
 
         public async Task OnPostAsyncGoToEmploymentInfo()
         {
+
             await Task.Delay(1);
             showUserInfo = false;
             showEmploymentInfo = true;
@@ -65,6 +67,8 @@ namespace COVID19Ninjas.Pages
 
         public void OnPostGoToEmploymentInfo()
         {
+            usersStaticData = Users;
+
             showUserInfo = false;
             showEmploymentInfo = true;
         }
@@ -76,6 +80,11 @@ namespace COVID19Ninjas.Pages
             showThanksInfo = false;
             showIndemnityInfo = false;
 
+        }
+
+        public IActionResult OnPostGoToValidationPage()
+        {
+            return new RedirectToPageResult("Validation", new { usersEmail = usersStaticData.Email, usersPhone = usersStaticData.PhoneNumber, usersFullName = usersStaticData.FirstName + " " + usersStaticData.MiddleName + " " + usersStaticData.LastName });
         }
 
 

@@ -141,24 +141,38 @@
                 </div>
                 <div class="modal-body">
                     You are about to initiate the validation process. Kindly note that you will be charged the sum of <b>Hundred Naira (₦100.00)</b> in order to proceed. Click the button below to proceed.
+                    <p>
+                        This fee is to validate your
+                        <h6>*BVN</h6>
+                        <h6>*Account number </h6>
+                        as charged by the verification third-party company. Verifying these data hastens the process of attending to your submission of relief requests
+
+                    </p>
                 </div>
                 <div class="modal-footer text-center">
                     <p id="trnxStatus"></p>
                     <form>
-                        <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+                        <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js">
+                        </script>
                         <button type="button" class="button button--filled" onClick="payWithRave()">Proceed to Payment</button>
                     </form>
                     <script type="text/javascript">
-                        const API_publicKey = "FLWPUBK-7a752908849ffd63cccbda65804657ae-X";
+
+                        const API_publicKey = "FLWPUBK_TEST-f1ea6f74705ea0373373c18dd8977ccc-X";
                         function payWithRave() {
+                        debugger;
+                        var email = document.getElementById("usersEmail").innerHTML;
+                        var phone = document.getElementById("usersPhone").innerHTML;
+                        var fullname = document.getElementById("usersName").innerHTML;
+                        var trnx = document.getElementById("usersTrnx").innerHTML;
                         $("#trnxStatus").html("");
                         var x = getpaidSetup({
                         PBFPubKey: API_publicKey,
-                        customer_email: "user@example.com",
+                        customer_email: email,
                         amount: 1,
-                        customer_phone: "234099940409",
+                        customer_phone: phone,
                         currency: "NGN",
-                        txref: "rave-123456",
+                        txref: trnx,
                         meta: [{
                         metaname: "flightID",
                         metavalue: "AP1234"
@@ -167,14 +181,22 @@
                         $("#trnxStatus").html("Transaction was cancelled").addClass("text-danger");
                         },
                         callback: function (response) {
-                        var txref = response.data.txRef; // collect txRef returned and pass to a server page to complete status check.
+                        debugger;
+                        var txrefId = response.data.transaction_id; // collect txRef returned and pass to a server page to complete status check.
                         console.log("This is the response returned after a charge", response);
-                        if (response.data.chargeResponseCode == "00" || response.data.chargeResponseCode == "0") {
+                        if (response.data.data.responsecode == "00" || response.data.chargeResponseCode == "0") {
                         // redirect to a success page
-                        updateTrnx();
+                        var txid = response.data.tx.id;
+                        var txOrderRef = response.data.tx.orderRef;
+                        var paymentId = response.data.tx.paymentId;
+                        var raveRef = response.data.tx.raveRef;
+                        $('#enableValidationModal').modal('hide');
+                        updateTrnx(raveRef);
+                        saveTrnxRef(raveRef);
 
                         } else {
-                        updateTrnx();
+                        updateTrnx('failed');
+                        saveTrnxRef('failed');
 
                         // redirect to a failure page.
                         }
@@ -184,9 +206,9 @@
                         }
 
 
-                        function updateTrnx() {
+                        function updateTrnx(txRef) {
                         $.ajax({
-                        url: '@Url.Action("updateTrnx", "Client")?refid='+response.data.txRef,
+                        url: '@Url.Action("updateTrnx", "Client")?refid='+txRef,
                         type: 'GET',
                         dataType: "json",
                         success: function (response) {
@@ -195,6 +217,19 @@
                         });
 
                         }
+
+                            function saveTrnxRef(dt) {
+                                $.ajax({
+                                url: "@Url.Page("/Validation")?handler=ReturnFromFW",
+                                type: 'GET',
+                                data: {tx_ref: dt},
+
+                                success: function (response) {
+
+                                }
+                                });
+
+                                }
 
                     </script>
                 </div>
