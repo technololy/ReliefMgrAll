@@ -11,4 +11,12 @@
 
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\COVID19Relief.Middleware\COVID19Relief.Middleware.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>

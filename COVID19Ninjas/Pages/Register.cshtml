@@ -34,9 +34,9 @@
                             <div class="col-lg-12 col-xl-12">
                                 <ul id="progressbar" style="width:100%;">
                                     <li id="personInfo" class="active">Personal Information</li>
-                                    <li id="empInfo" >Employment Information</li>
+                                    <li id="empInfo">Employment Information</li>
                                     <li id="idemInfo">Indemnity Agreement</li>
-                                    <li id="thankYouInfo" >Validation/Thank you</li>
+                                    <li id="thankYouInfo">Validation/Thank you</li>
                                 </ul>
                                 @if (Model.showUserInfo)
                                 {
@@ -84,7 +84,7 @@
                                             </div>
                                             <div class="col-12" style="margin-bottom:20px !important;">
                                                 @*<button class="form__submit" type="submit" asp-page-handler="GoToEmploymentInfo" id="gotoStep2">Next</button>*@
-                                                <input class="form__submit" value="Go To Employment Details" type="submit" asp-page-handler="GoToEmploymentInfo" id="gotoStep2"/>
+                                                <input class="form__submit" value="Go To Employment Details" type="submit" asp-page-handler="GoToEmploymentInfo" id="gotoStep2" />
 
                                             </div>
                                         </div>
@@ -108,88 +108,88 @@
                                                     <input class="form__field" type="text" asp-for="SalaryWorkersDetails.ActiveEmail" id="activeEmail" placeholder="Active Email" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" asp-for="SalaryWorkersDetails.ActivePhoneNumber"  type="text" id="activePhoneNumber1" placeholder="Active PhoneNumber" />
+                                                    <input class="form__field" asp-for="SalaryWorkersDetails.ActivePhoneNumber" type="text" id="activePhoneNumber1" placeholder="Active PhoneNumber" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <select class="form__select"  asp-for="SalaryWorkersDetails.AreYouCurrentlyInEmployment"  id="areYouCurrentlyInEmployment">
+                                                    <select class="form__select" asp-for="SalaryWorkersDetails.AreYouCurrentlyInEmployment" id="areYouCurrentlyInEmployment">
                                                         <option>Are you currently employed?</option>
                                                         <option value="true">Yes</option>
                                                         <option value="false">No</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field"  asp-for="SalaryWorkersDetails.EmployerName" type="text" id="employerName" placeholder="Employer Name" />
+                                                    <input class="form__field" asp-for="SalaryWorkersDetails.EmployerName" type="text" id="employerName" placeholder="Employer Name" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" asp-for="SalaryWorkersDetails.EmployerIndustry"  id="employerIndustry" placeholder="Employer Industry" />
+                                                    <input class="form__field" type="text" asp-for="SalaryWorkersDetails.EmployerIndustry" id="employerIndustry" placeholder="Employer Industry" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" asp-for="SalaryWorkersDetails.EmployerRcNoOrBrNo"  type="text" id="employerRcNoOrBrNo" placeholder="Employer RcNo Or BrNo" />
+                                                    <input class="form__field" asp-for="SalaryWorkersDetails.EmployerRcNoOrBrNo" type="text" id="employerRcNoOrBrNo" placeholder="Employer RcNo Or BrNo" />
                                                 </div>
                                                 @*<div class="col-lg-6">
-                            <input class="form__field " type="text" id="" placeholder="Date of Employment" />
-                        </div>*@
+                                                        <input class="form__field " type="text" id="" placeholder="Date of Employment" />
+                                                    </div>*@
 
                                                 <div class="col-lg-6 input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dateOfEmployment" data-link-format="yyyy-mm-dd">
-                                                    <input class="form__field " type="text" asp-for="SalaryWorkersDetails.DateOfEmployment"  placeholder="Date of Employment" value="" readonly />
+                                                    <input class="form__field " type="text" asp-for="SalaryWorkersDetails.DateOfEmployment" placeholder="Date of Employment" value="" readonly />
                                                     <span class="input-group-addon" dateOfEmployment><span class="glyphicon glyphicon-calendar"></span></span>
                                                 </div>
-                                                <input type="hidden" asp-for="SalaryWorkersDetails.DateOfEmployment"  id="dateOfEmployment" value="" />
+                                                <input type="hidden" asp-for="SalaryWorkersDetails.DateOfEmployment" id="dateOfEmployment" value="" />
 
                                                 <div class="col-lg-6 input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dateOfLeaving1" data-link-format="yyyy-mm-dd">
-                                                    <input class="form__field " asp-for="SalaryWorkersDetails.DateOfLeaving"  type="text" placeholder="Date of leaving" value="" readonly />
+                                                    <input class="form__field " asp-for="SalaryWorkersDetails.DateOfLeaving" type="text" placeholder="Date of leaving" value="" readonly />
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                                 </div>
-                                                <input type="hidden" id="dateOfLeaving1" asp-for="SalaryWorkersDetails.DateOfLeaving"  value="" />
+                                                <input type="hidden" id="dateOfLeaving1" asp-for="SalaryWorkersDetails.DateOfLeaving" value="" />
 
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" asp-for="SalaryWorkersDetails.AvgMonthlySalaryForSixMonths"  type="text" id="avgMonthlySalaryForSixMonths1" placeholder="Avg. 6 Months Salary" />
+                                                    <input class="form__field" asp-for="SalaryWorkersDetails.AvgMonthlySalaryForSixMonths" type="text" id="avgMonthlySalaryForSixMonths1" placeholder="Avg. 6 Months Salary" />
                                                 </div>
                                             </div>
                                             <div id="selfEmployedWorkersDetails" class="row" style="padding:15px !important; display: none">
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" asp-for="SelfEmployed.ActivePhoneNumber"  id="activePhoneNumber" placeholder="Active Phone Number" />
+                                                    <input class="form__field" type="text" asp-for="SelfEmployed.ActivePhoneNumber" id="activePhoneNumber" placeholder="Active Phone Number" />
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <textarea class="form__field form__message" asp-for="SelfEmployed.ActiveResidentialAddress"  id="activeResidentialAddress" placeholder="Active Residential Address"></textarea>
+                                                    <textarea class="form__field form__message" asp-for="SelfEmployed.ActiveResidentialAddress" id="activeResidentialAddress" placeholder="Active Residential Address"></textarea>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" asp-for="SelfEmployed.NameOfBusiness"  id="nameOfBusiness" placeholder="Name of Business" />
+                                                    <input class="form__field" type="text" asp-for="SelfEmployed.NameOfBusiness" id="nameOfBusiness" placeholder="Name of Business" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" id="industry"  asp-for="SelfEmployed.Industry" placeholder="Industry" />
+                                                    <input class="form__field" type="text" id="industry" asp-for="SelfEmployed.Industry" placeholder="Industry" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" id="businessDescription" placeholder="Business Description" asp-for="SelfEmployed.BusinessDescription"  />
+                                                    <input class="form__field" type="text" id="businessDescription" placeholder="Business Description" asp-for="SelfEmployed.BusinessDescription" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" asp-for="SelfEmployed.BusinessRcNoOrBrNo"  id="businessRcNoOrBrNo" placeholder="Business RcNo Or BrNo" />
+                                                    <input class="form__field" type="text" asp-for="SelfEmployed.BusinessRcNoOrBrNo" id="businessRcNoOrBrNo" placeholder="Business RcNo Or BrNo" />
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <select class="form__select" asp-for="SelfEmployed.OwnBusinessAlone"  id="ownBusinessAlone">
+                                                    <select class="form__select" asp-for="SelfEmployed.OwnBusinessAlone" id="ownBusinessAlone">
                                                         <option>Do you own this business alone?</option>
                                                         <option value="true">Yes</option>
                                                         <option value="false">No</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <select class="form__select"  asp-for="SelfEmployed.BusinessStillOperational" id="businessStillOperational">
+                                                    <select class="form__select" asp-for="SelfEmployed.BusinessStillOperational" id="businessStillOperational">
                                                         <option>Is business still operational?</option>
                                                         <option value="true">Yes</option>
                                                         <option value="false">No</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-6 input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="startDateOfBusiness" data-link-format="yyyy-mm-dd">
-                                                    <input class="form__field " asp-for="SelfEmployed.StartDateOfBusiness"  type="text" placeholder="Start Date of Business" value="" readonly />
+                                                    <input class="form__field " asp-for="SelfEmployed.StartDateOfBusiness" type="text" placeholder="Start Date of Business" value="" readonly />
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                                 </div>
-                                                <input type="hidden" id="startDateOfBusiness" asp-for="SelfEmployed.StartDateOfBusiness"  value="" />
+                                                <input type="hidden" id="startDateOfBusiness" asp-for="SelfEmployed.StartDateOfBusiness" value="" />
 
                                                 <div class="col-lg-6 input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="closeDateOfBusiness" data-link-format="yyyy-mm-dd">
-                                                    <input class="form__field " type="text" asp-for="SelfEmployed.CloseDateOfBusiness"  placeholder="Close Date of Business" value="" readonly />
+                                                    <input class="form__field " type="text" asp-for="SelfEmployed.CloseDateOfBusiness" placeholder="Close Date of Business" value="" readonly />
                                                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                                 </div>
-                                                <input type="hidden"  asp-for="SelfEmployed.CloseDateOfBusiness" id="closeDateOfBusiness" value="" />
+                                                <input type="hidden" asp-for="SelfEmployed.CloseDateOfBusiness" id="closeDateOfBusiness" value="" />
 
                                                 <div class="col-lg-6 input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dateOfLeaving" data-link-format="yyyy-mm-dd">
                                                     <input class="form__field " type="text" placeholder="Date of Leaving" value="" readonly />
@@ -197,7 +197,7 @@
                                                 </div>
                                                 <input type="hidden" id="dateOfLeaving" value="" />
                                                 <div class="col-lg-6">
-                                                    <input class="form__field" type="text" asp-for="SelfEmployed.AvgMonthlySalaryForSixMonths"  id="avgMonthlySalaryForSixMonths" placeholder="Avg. 6 Months Salary" />
+                                                    <input class="form__field" type="text" asp-for="SelfEmployed.AvgMonthlySalaryForSixMonths" id="avgMonthlySalaryForSixMonths" placeholder="Avg. 6 Months Salary" />
                                                 </div>
                                             </div>
                                             <div id="divBackToStep1gotoStep3" class="col-12" style="margin-bottom:20px !important; display:none;">
@@ -254,7 +254,9 @@
                                             </div>
                                             <div class="col-12" style="margin-bottom:20px !important;">
                                                 @*<button class="form__submit" type="submit" id="sendEmailActivationLink">Proceed</button>*@
-                                                <a class="form__submit" asp-controller="client" asp-action="dashboard"><span>Agree</span></a>
+                                                @*@<a class="form__submit" asp-controller="client" asp-action="dashboard"><span>AgreeOld</span></a>*@
+                                                @*@<button asp-page="/Dashboard" class="form__submit" type="submit" id="gotoEnableValidation">Agree</button>*@
+                                                <button asp-page-handler="GoToDashBoard" class="form__submit" type="submit" id="gotoEnableValidation">Agree</button>
                                                 <button class="form__submit" type="submit" asp-page-handler="GoToThankYou" id="gotoStep4">Cancel</button>
                                             </div>
                                         </div>
@@ -309,8 +311,7 @@
 </main>
 @section covidScripts {
 
-    <script>
-        let appData = {};
+    <script>let appData = {};
         let option = $("#IsEmploymentStatus");
         $(document).ready(function () {
             // Get all the banks and populate the dropdown list
@@ -699,6 +700,5 @@
             startView: 2,
             minView: 2,
             forceParse: 0
-        });
-    </script>
+        });</script>
 }

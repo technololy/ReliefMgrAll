@@ -1,0 +1,294 @@
+﻿@page
+@model COVID19Ninjas.Pages.DashboardModel
+@{
+
+    ViewData["Title"] = "My Dashboard";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<main class="main">
+    <section class="promo-primary promo-primary--shop">
+        <picture>
+            <source srcset="~/Template/img/promo_2.jpg" media="(min-width: 992px)" />
+            <img class="img--bg" src="~/Template/img/promo_2.jpg" alt="img" />
+        </picture>
+        <div class="promo-primary__description"> <span></span></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <div class="align-container">
+                        <div class="align-container__item">
+                            <span class="promo-primary__pre-title">Welcome</span>
+                            <h1 class="promo-primary__title"><span>My</span> <span>Dashboard</span></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section start-->
+    <section class="section background--brown">
+        <p hidden>
+            This paragraph should be hidden.
+            <h5 hidden id="usersEmail">@Model.UsersEmail</h5>
+            <h5 hidden id="usersPhone">@Model.UsersPhone</h5>
+            <h5 hidden id="usersName">@Model.UsersName</h5>
+            <h5 hidden id="usersTrnx">@Model.UsersTrnxRef</h5>
+
+        </p>
+        <form class="form checkout-form" method="post" asp-page="Dashboard">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="mb-5">Registration Status</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="tabs vertical-tabs">
+                            <ul class="vertical-tabs__header">
+                                <li><a href="#tab-application"><span><i class="fa fa-edit text-primary"></i> &nbsp;Application </span></a></li>
+                                <li><a href="#tab-validation"><span><i class="fa fa-warning text-primary"></i> &nbsp;Validation </span></a></li>
+                                <li><a href="#tab-proof-income"><span><i class="fa fa-money text-primary"></i> &nbsp;Proof of Income</span></a></li>
+                                <li><a href="#tab-pproof-identity"><span><i class="fa fa-id-card text-primary"></i> &nbsp;Proof of Identity</span></a></li>
+                            </ul>
+                            <div class="vertical-tabs__content">
+                                <div class="vertical-tabs__item" id="tab-application">
+                                    <p>Application Form Completed &nbsp;<span class="badge badge-success">Yes  &nbsp;<i class="fa fa-check"></i></span></p>
+                                    <hr />
+                                    <p>You have successfully completed the application form. Kindly proceed.</p>
+                                    <p style="color:#f9f7f6">Thresher shark rudd African lungfish silverside, Red salmon rockfish grunion, garpike zebra danio king-of-the-salmon banjo catfish. Sea chub demoiselle whalefish zebra lionfish mud cat pelican eel.</p>
+                                </div>
+                                <div class="vertical-tabs__item" id="tab-validation">
+                                    <div id="PaymentMadeForValidations" class="mb-5">
+                                        <p>
+                                            Kindly ensure all sections are completely validated before proceeding. Click button below to enable validation.
+                                        </p>
+                                        <!-- Button trigger modal -->
+                                        <p>
+                                            <button type="button" class="button button--primary" data-toggle="modal" data-target="#enableValidationModal">
+                                                Enable Validation &nbsp;<i class="fa fa-arrow-right"></i>
+                                            </button>
+
+                                            @*@<button type="submit" id="DoEnable" class="button button--primary" asp-page-handler="DoEnableValidation">
+                                                    Enable Validation &nbsp;<i class="fa fa-arrow-right"></i>
+                                                </button>*@
+                                            @* <button class="form__submit" type="submit" asp-page-handler="GoToValidation" id="gotoStep4">Start</button>*@
+                                        </p>
+
+                                    </div>
+                                    <div class="validation-box disabled">
+                                        <p>Email Validated &nbsp;<span class="badge badge-success">Yes  &nbsp;<i class="fa fa-check"></i></span></p>
+                                        <hr />
+
+                                        <p>
+                                            BVN Validated &nbsp;<span class="badge badge-danger">No &nbsp;<i class="fa fa-times"></i></span>
+                                            <a href="" class="btn-validate pull-right">Validate Now &nbsp;<i class="fa fa-arrow-right"></i></a>
+                                        </p>
+                                        <hr />
+
+                                        <p>
+                                            Phone Number Validated &nbsp;<span class="badge badge-danger">No &nbsp;<i class="fa fa-times"></i></span>
+                                            <a href="" class="btn-validate pull-right">Validate Now &nbsp;<i class="fa fa-arrow-right"></i></a>
+                                        </p>
+                                        <hr />
+
+                                        <p>
+                                            Account Number Validated &nbsp;<span class="badge badge-danger">No &nbsp;<i class="fa fa-times"></i></span>
+                                            <a href="" class="btn-validate pull-right">Validate Now &nbsp;<i class="fa fa-arrow-right"></i></a>
+                                        </p>
+                                        <hr />
+                                    </div>
+                                    <p style="color:#f9f7f6">Thresher shark rudd African lungfish silverside, Red salmon rockfish grunion, garpike zebra danio king-of-the-salmon banjo catfish. Sea chub demoiselle whalefish zebra lionfish mud cat pelican eel.</p>
+                                </div>
+                                <div class="vertical-tabs__item" id="tab-proof-income">
+                                    <p>Proof of Income uploaded &nbsp;<span class="badge badge-danger">No  &nbsp;<i class="fa fa-times"></i></span></p>
+                                    <hr />
+                                    <p>You are yet to upload proof of income. Click the button below to upload document.</p>
+                                    <p>
+                                        <button type="button" class="button button--primary" data-toggle="modal" data-target="#enableValidationModal">
+                                            <i class="fa fa-upload"></i> &nbsp;Upload Document
+                                        </button>
+                                    </p>
+                                    <p style="color:#f9f7f6">Thresher shark rudd African lungfish silverside, Red salmon rockfish grunion, garpike zebra danio king-of-the-salmon banjo catfish. Sea chub demoiselle whalefish zebra lionfish mud cat pelican eel.</p>
+                                </div>
+                                <div class="vertical-tabs__item" id="tab-pproof-identity">
+                                    <p>Proof of Identity uploaded &nbsp;<span class="badge badge-danger">No  &nbsp;<i class="fa fa-times"></i></span></p>
+                                    <hr />
+                                    <p>You are yet to upload proof of identity. Click the button below to upload document.</p>
+                                    <p>
+                                        <button type="button" class="button button--primary" data-toggle="modal" data-target="#enableValidationModal">
+                                            <i class="fa fa-upload"></i> &nbsp;Upload Document
+                                        </button>
+                                    </p>
+                                    <p style="color:#f9f7f6">Thresher shark rudd African lungfish silverside, Red salmon rockfish grunion, garpike zebra danio king-of-the-salmon banjo catfish. Sea chub demoiselle whalefish zebra lionfish mud cat pelican eel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- section end-->
+    <!-- bottom bg start-->
+    <section class="bottom-background background--brown">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bottom-background__img"><img src="~/Template/img//bottom-bg.png" alt="img" /></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bottom bg end-->
+    <!-- Modal for Initiating enableValidationModalx -->
+    <div class="modal fade" id="enableValidationModalx" tabindex="-1" role="dialog" aria-labelledby="enableValidationModalxLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="enableValidationModalxLabel">Enable Validations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You are about to initiate the validation process. Kindly note that you will be charged the sum of <b>Hundred Naira (₦100.00)</b> in order to proceed. Click the button below to proceed.
+                </div>
+                <div class="modal-footer text-center">
+                    <p id="trnxStatus"></p>
+                    <form>
+                        <script src="https://checkout.flutterwave.com/v3.js"></script>
+                        <button type="button" class="button button--filled" onClick="payWithRave()">Proceed to Payment</button>
+                    </form>
+                    <script type="text/javascript">
+
+                        const API_publicKey = "FLWSECK_TEST-7bc7abd1dc997394275759f2107a04ed-X";
+
+                        function payWithRavex() {
+                            debugger;
+                            var em1 = document.getElementById('usersEmail').value;
+                            var ph1 = document.getElementById('usersPhone').value;
+                            var na1 = document.getElementById('usersName').value;
+                            FlutterwaveCheckout({
+                                public_key: API_publicKey,
+                                tx_ref: "hooli-tx-1920bbtyt",
+                                amount: 1,
+                                currency: "NGN",
+                                payment_options: "card,mobilemoney,ussd",
+                                customer: {
+                                    email: em1,
+                                    phonenumber: ph1,
+                                    name: na1,
+                                },
+
+                                onclose: function () {
+                                    //close modal
+                                },
+                                callback: function (data) { // specified callback function
+                                                debugger;
+
+                                    var txref = response.data.txRef; // collect txRef returned and pass to a server page to complete status check.
+                                    console.log("This is the response returned after a charge", response);
+
+                                     if (response.data.chargeResponseCode == "00" ||
+                                        response.data.chargeResponseCode == "0") {
+                                                // redirect to a success page
+                                            updateTrnx(response.data.txRef);
+
+                                            } else {
+                                            debugger;
+
+                                            updateTrnx('failed');
+
+                                            // redirect to a failure page.
+                                            }
+
+
+
+                                },
+                                customizations: {
+                                    title: "My store",
+                                    description: "Payment for items in cart",
+                                    logo: "https://assets.piedpiper.com/logo.png",
+                                }
+                            });
+                        }
+
+
+
+
+                        function payWithRave() {
+
+
+                            debugger;
+                            var em = document.getElementById('usersEmail').value;
+                            var ph = document.getElementById('usersPhone').value;
+                            var na = document.getElementById('usersName').value;
+
+
+                        $("#trnxStatus").html("");
+
+                        var x = getpaidSetup({
+                        PBFPubKey: API_publicKey,
+
+                        amount: 1,
+
+                        currency: "NGN",
+                        tx_ref: document.getElementById('usersTrnx').value,
+                            customer: {
+                                email: document.getElementById('usersEmail').value,
+                                phonenumber: document.getElementById('usersPhone').value,
+                                name: document.getElementById('usersName').value,
+                            },
+                            customizations: {
+                                title: "Relief Manager",
+                                description: "Pandemic help",
+                                logo: "https://assets.piedpiper.com/logo.png",
+                            },
+                        onclose: function () {
+                        $("#trnxStatus").html("Transaction was cancelled").addClass("text-danger");
+                        },
+                        callback: function (response) {
+                            debugger;
+                        var txref = response.data.txRef; // collect txRef returned and pass to a server page to complete status check.
+                        console.log("This is the response returned after a charge", response);
+                        if (response.data.chargeResponseCode == "00" ||
+                        response.data.chargeResponseCode == "0") {
+                        // redirect to a success page
+                        debugger;
+                        updateTrnx(response.data.txRef);
+
+                        } else {
+                        debugger;
+
+                        updateTrnx(response.data.txRef);
+
+                        // redirect to a failure page.
+                        }
+                        x.close(); // use this to close the modal immediately after payment.
+                        }
+                        });
+                        }
+
+
+                        function updateTrnx(dt) {
+                        $.ajax({
+                            url: "@Url.Page("/Dashboard")?handler=ReturnFromFW",
+                        type: 'GET',
+                        data: {tx_ref: dt},
+
+                        success: function (response) {
+
+                        }
+                        });
+
+                        }
+
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

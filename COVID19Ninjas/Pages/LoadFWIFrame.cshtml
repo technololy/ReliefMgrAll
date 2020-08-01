@@ -1,0 +1,14 @@
+﻿@page
+@model COVID19Ninjas.Pages.LoadFWIFrameModel
+@{
+    Layout = null;
+
+}
+<div>
+    <form method="post">
+
+        <button type="submit" asp-page-handler="GoBack" class="button button--filled">Cancel Payment</button>
+    </form>
+    <iframe style="overflow:hidden; min-height:600px; height:100%; width:100%" height="100%" width="100%" src=@Model.PaymentURL>
+    </iframe>
+</div>

@@ -17,7 +17,7 @@ namespace COVID19Ninjas.Controllers
         [HttpGet]
         public void updateTrnx(string refid)
         {
-           
+
         }
     }
 }

@@ -16,6 +16,8 @@ namespace COVID19Ninjas.Pages
 
         [BindProperty]
         public Users Users { get; set; }
+
+        public static Users UsersData { get; set; }
         [BindProperty]
         public SalaryDetails SalaryDetails { get; set; }
         [BindProperty]
@@ -41,11 +43,11 @@ namespace COVID19Ninjas.Pages
         public async Task OnGetAsync()
         {
             showUserInfo = true;
-         //var banks =  await  dataService.GetData<List<Banks>>("api/Banks");
+            //var banks =  await  dataService.GetData<List<Banks>>("api/Banks");
 
         }
 
-        
+
 
         public async Task OnPostAsyncGoToEmploymentInfo()
         {
@@ -65,8 +67,17 @@ namespace COVID19Ninjas.Pages
 
         public void OnPostGoToEmploymentInfo()
         {
+            UsersData = Users;
             showUserInfo = false;
             showEmploymentInfo = true;
+        }
+
+
+        public IActionResult OnPostGoToDashBoard()
+        {
+            return RedirectToPage("Dashboard", "InitValidation", new { email = UsersData.Email, phone = UsersData.PhoneNumber, name = UsersData.FirstName + " " + UsersData.LastName });
+
+            //return new RedirectToPageResult($"Dashboard?users=test");
         }
 
 
@@ -75,6 +86,25 @@ namespace COVID19Ninjas.Pages
             await Task.Delay(1);
             showThanksInfo = false;
             showIndemnityInfo = false;
+
+        }
+
+        //public async Task OnPostGoToPerfValidate()
+        //{
+        //    await Task.Delay(1);
+        //    //RedirectToAction("Dashboard", "Client");
+        //    //RedirectToPage("/Index");
+
+        //}
+
+
+
+        public async Task<RedirectToPageResult> OnPostGoToPerfValidate()
+        {
+            await Task.Delay(1);
+
+            return new RedirectToPageResult("../Views/Client/Dashboard");
+            //RedirectToPage("/Index");
 
         }
 

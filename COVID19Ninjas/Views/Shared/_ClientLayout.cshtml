@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -131,6 +133,7 @@
 
     <!-- Modal for Initiating enableValidationModal -->
     <div class="modal fade" id="enableValidationModal" tabindex="-1" role="dialog" aria-labelledby="enableValidationModalLabel" aria-hidden="true">
+
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -141,62 +144,21 @@
                 </div>
                 <div class="modal-body">
                     You are about to initiate the validation process. Kindly note that you will be charged the sum of <b>Hundred Naira (₦100.00)</b> in order to proceed. Click the button below to proceed.
+                    <p>
+                        <h5 id="_usersEmail">@HttpContextAccessor.HttpContext.Session.GetString("_UsersEmail")</h5>
+                        <h5 id="_usersPhone">@HttpContextAccessor.HttpContext.Session.GetString("_UsersPhone")</h5>
+                        <h5 id="_usersName">@HttpContextAccessor.HttpContext.Session.GetString("_UsersName")</h5>
+                        <h5 id="_usersTrnx">@HttpContextAccessor.HttpContext.Session.GetString("_Users")</h5>
+                    </p>
                 </div>
                 <div class="modal-footer text-center">
                     <p id="trnxStatus"></p>
                     <form>
-                        <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
-                        <button type="button" class="button button--filled" onClick="payWithRave()">Proceed to Payment</button>
+                        <script src="https://checkout.flutterwave.com/v3.js">
+                        </script>
+                        <button type="button" class="button button--filled" onClick="payWithRave()">Initiate validation payment</button>
                     </form>
-                    <script type="text/javascript">
-                        const API_publicKey = "FLWPUBK-7a752908849ffd63cccbda65804657ae-X";
-                        function payWithRave() {
-                        $("#trnxStatus").html("");
-                        var x = getpaidSetup({
-                        PBFPubKey: API_publicKey,
-                        customer_email: "user@example.com",
-                        amount: 1,
-                        customer_phone: "234099940409",
-                        currency: "NGN",
-                        txref: "rave-123456",
-                        meta: [{
-                        metaname: "flightID",
-                        metavalue: "AP1234"
-                        }],
-                        onclose: function () {
-                        $("#trnxStatus").html("Transaction was cancelled").addClass("text-danger");
-                        },
-                        callback: function (response) {
-                        var txref = response.data.txRef; // collect txRef returned and pass to a server page to complete status check.
-                        console.log("This is the response returned after a charge", response);
-                        if (response.data.chargeResponseCode == "00" || response.data.chargeResponseCode == "0") {
-                        // redirect to a success page
-                        updateTrnx();
-
-                        } else {
-                        updateTrnx();
-
-                        // redirect to a failure page.
-                        }
-                        x.close(); // use this to close the modal immediately after payment.
-                        }
-                        });
-                        }
-
-
-                        function updateTrnx() {
-                        $.ajax({
-                        url: '@Url.Action("updateTrnx", "Client")?refid='+response.data.txRef,
-                        type: 'GET',
-                        dataType: "json",
-                        success: function (response) {
-
-                        }
-                        });
-
-                        }
-
-                    </script>
+                    <script src="/COVID19Ninjas/wwwroot/js/flutterwave.js"></script>
                 </div>
             </div>
         </div>
